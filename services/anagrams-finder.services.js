@@ -6,4 +6,8 @@ findAllUniqueAnagrams = (sentence) => {
     return [];
 }
 
+findAllUniqueAnagrams = (word, sentence) => {
+    return [];
+};
+
 module.exports = {isAnagram, findAllUniqueAnagrams}

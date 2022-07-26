@@ -16,7 +16,7 @@ wordSentenceUniqueAnagrams = function(request, response) {
     }
 };
 
-uniqueAnagramsInSenetence = function(request, response) {
+uniqueAnagramsInSentence = function(request, response) {
     try {
         response.status(200).send({"outcome" : findAllUniqueAnagrams(request.body.sentence)});
     } catch(error) {
@@ -24,4 +24,4 @@ uniqueAnagramsInSenetence = function(request, response) {
     }
 };
 
-module.exports = {twoWordsAnagram, wordSentenceUniqueAnagrams, uniqueAnagramsInSenetence}
+module.exports = {twoWordsAnagram, wordSentenceUniqueAnagrams, uniqueAnagramsInSentence}

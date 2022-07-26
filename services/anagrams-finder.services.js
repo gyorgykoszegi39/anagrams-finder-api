@@ -27,8 +27,27 @@ isAnagram = (word1, word2) => {
 };
 
 findAllUniqueAnagrams = (sentence) => {
-    return [];
-}
+    wordHashMap = new Map();
+
+    sentence.split(" ").forEach(word => {
+
+        sortedWord = sortWordByChars(word);
+        if(!wordHashMap.has(sortedWord)) {
+            wordHashMap.set(sortedWord, new Set());
+        }
+            
+        wordHashMap.set(sortedWord, wordHashMap.get(sortedWord).add(word));
+    });
+
+    uniqueAnagrams = [];
+    for(const value of wordHashMap.values()) {
+        if(value.size > 1) {
+            uniqueAnagrams.push(Array.from(value));
+        }
+    }
+
+    return uniqueAnagrams;
+};
 
 findAllUniqueAnagrams = (word, sentence) => {
     return [];

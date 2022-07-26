@@ -43,4 +43,19 @@ containsWordSentence = (request, response, next) =>{
 
     next();
 };
-module.exports = {containsTwoWords, containsWordSentence}
+
+containsSentence = (request, response, next) =>{
+    var sentence = request.body.sentence;
+
+    if(typeof sentence == "undefined") {
+        return response.status(400).send("Please enter a sentence using key sentence in the body of the request. (For example: sentence : **Your sentence.**)");
+    }
+
+    if(sentence == null || sentence.length == 0) {
+        return response.status(400).send("Please enter a sentence.");
+    }
+
+    next();
+};
+
+module.exports = {containsTwoWords, containsWordSentence, containsSentence}

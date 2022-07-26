@@ -1,0 +1,24 @@
+containsTwoWords = (request, response, next) =>{
+    var word1 = request.body.word1;
+    var word2 = request.body.word2;
+
+    if(typeof word1 == "undefined") {
+        return response.status(400).send("Please fill in the first word using key word1 in the body of the request. (For example: word1 : **yourWord**)");
+    }
+
+    if(word1 == null || word1.length == 0) {
+        return response.status(400).send("Please fill in the first word.");
+    }
+
+    if(typeof word2 == "undefined") {
+        return response.status(400).send("Please fill in the second word using key word2 in the body of the request. (For example: word2 : **yourWord**)");
+    }
+
+    if(word2 == null || word2.length == 0) {
+        return response.status(400).send("Please fill in the second word.");
+    }
+
+    next();
+};
+
+module.exports = {containsTwoWords}

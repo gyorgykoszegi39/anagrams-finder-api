@@ -1,22 +1,21 @@
-containsTwoWords = (req, res, next) =>{
-    var word1 = req.body.word1;
-    var word2 = req.body.word2;
-
+containsTwoWords = (request, response, next) =>{
+    var word1 = request.body.word1;
+    var word2 = request.body.word2;
 
     if(typeof word1 == "undefined") {
-        return res.status(400).send("Please fill in the first word using key word1. (For example: word1 : **yourWord**)");
+        return response.status(400).send("Please fill in the first word using key word1 in the body of the request. (For example: word1 : **yourWord**)");
     }
 
     if(word1 == null || word1.length == 0) {
-        return res.status(400).send("Please fill in the first word.");
+        return response.status(400).send("Please fill in the first word.");
     }
 
     if(typeof word2 == "undefined") {
-        return res.status(400).send("Please fill in the first word using key word2. (For example: word2 : **yourWord**)");
+        return response.status(400).send("Please fill in the second word using key word2 in the body of the request. (For example: word2 : **yourWord**)");
     }
 
-    if(word2.length == 0) {
-        return res.status(400).send("Please fill in the second word.");
+    if(word2 == null || word2.length == 0) {
+        return response.status(400).send("Please fill in the second word.");
     }
 
     next();

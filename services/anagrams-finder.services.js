@@ -2,4 +2,8 @@ isAnagram = (word1, word2) => {
     return true;
 };
 
-module.exports = {isAnagram}
+findAllUniqueAnagrams = (word, sentence) => {
+    return [];
+};
+
+module.exports = {isAnagram, findAllUniqueAnagrams}

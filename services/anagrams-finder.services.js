@@ -26,6 +26,21 @@ isAnagram = (word1, word2) => {
     return sortWordByChars(word1) == sortWordByChars(word2);
 };
 
+findAllUniqueAnagramsGivenWord = (word, sentence) => {
+    console.log(sentence);
+    anagramsSet = new Set();
+
+    sentence.split(" ").forEach(sentenceWord => {
+
+        if(isAnagram(word, sentenceWord)) {
+            anagramsSet.add(sentenceWord);
+        }
+
+    });
+
+    return Array.from(anagramsSet);
+};
+
 findAllUniqueAnagrams = (sentence) => {
     wordHashMap = new Map();
 
@@ -49,8 +64,5 @@ findAllUniqueAnagrams = (sentence) => {
     return uniqueAnagrams;
 };
 
-findAllUniqueAnagrams = (word, sentence) => {
-    return [];
-};
 
-module.exports = {isAnagram, findAllUniqueAnagrams}
+module.exports = {isAnagram, findAllUniqueAnagramsGivenWord, findAllUniqueAnagrams}

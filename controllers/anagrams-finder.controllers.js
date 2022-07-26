@@ -1,4 +1,4 @@
-const {isAnagram} = require('../services/anagrams-finder.services');
+const {isAnagram, findAllUniqueAnagrams, findAllUniqueAnagramsGivenWord} = require('../services/anagrams-finder.services');
 
 twoWordsAnagram = function(request, response) {
     try {
@@ -10,7 +10,7 @@ twoWordsAnagram = function(request, response) {
 
 wordSentenceUniqueAnagrams = function(request, response) {
     try {
-        response.status(200).send({"outcome" : findAllUniqueAnagrams(request.body.word, request.body.sentence)});
+        response.status(200).send({"outcome" : findAllUniqueAnagramsGivenWord(request.body.word, request.body.sentence)});
     } catch(error) {
         response.status(400).send("Some error occurred. Please try again!")
     }
@@ -20,6 +20,7 @@ uniqueAnagramsInSentence = function(request, response) {
     try {
         response.status(200).send({"outcome" : findAllUniqueAnagrams(request.body.sentence)});
     } catch(error) {
+        console.log(error);
         response.status(400).send("Some error occurred. Please try again!")
     }
 };

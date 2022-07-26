@@ -9,4 +9,13 @@ twoWordsAnagram = function(request, response) {
     }
 };
 
-module.exports = {twoWordsAnagram}
+wordSentenceUniqueAnagrams = function(request, response) {
+    try {
+        response.status(200).send({"outcome" : findAllUniqueAnagrams(request.body.word, request.body.sentence)});
+    }
+    catch(error) {
+        response.status(400).send("Some error occurred. Please try again!")
+    }
+};
+
+module.exports = {twoWordsAnagram, wordSentenceUniqueAnagrams}

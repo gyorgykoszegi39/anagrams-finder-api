@@ -20,7 +20,6 @@ uniqueAnagramsInSentence = function(request, response) {
     try {
         response.status(200).send({"outcome" : findAllUniqueAnagrams(request.body.sentence)});
     } catch(error) {
-        console.log(error);
         response.status(400).send("Some error occurred. Please try again!")
     }
 };

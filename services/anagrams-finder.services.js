@@ -23,6 +23,9 @@ isAnagram = (word1, word2) => {
     if(word1.length != word2.length)
         return false;
 
+    if(word1 == word2)
+        return false;
+
     return sortWordByChars(word1) == sortWordByChars(word2);
 };
 

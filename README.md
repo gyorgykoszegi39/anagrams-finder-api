@@ -34,13 +34,15 @@ Javascript, Node.js
 #### Endpoint B: 
 * URL: http://localhost:4433/word-sentence-unique-anagrams		
 * body request parameters: "word" and "sentence"
-* Postman example:![word-sentence-unique-anagrams](https://user-images.githubusercontent.com/37733014/181358459-1f8bd84a-0dc9-4a56-93de-d3f3714c1ac8.png)
+* Postman example:![word-sentence-unique-anagrams](https://user-images.githubusercontent.com/37733014/181375565-ad9e8f2c-bed4-4d1c-b216-7170117e31aa.png)
+
 
 
 #### Endpoint C:
 * URL: http://localhost:4433/unique-anagrams-in-sentence 
 * body request parameters: "sentence"
-* Postman example:![unique-anagrams-in-sentence](https://user-images.githubusercontent.com/37733014/181358463-ba1c881a-a95a-477a-a40b-72257ed3c2ac.png)
+* Postman example:![unique-anagrams-in-sentence](https://user-images.githubusercontent.com/37733014/181375575-2441bf37-b76b-4732-afcb-946bba55a0de.png)
+
 
 
 ##  Author

@@ -1,3 +1,10 @@
+removeNonAlphabeticCharsExceptSpace = (word) => {
+    word = word.replace(/[^a-zA-Z\s]/g, ""); // remove all chars except space and aplhabet characthers
+    word = word.replace(/\s+/g, " ").trim(); // remove extra spaces from the beginning/middle/end
+
+    return word;
+};
+
 sortWordByChars = (word) => {
     const CHAR_CODE_OF_A = 97; // 97 = 'a'
     const NUMBER_OF_CHARS = 26; //English alphabet
@@ -71,4 +78,4 @@ findAllUniqueAnagrams = (sentence) => {
 };
 
 
-module.exports = {isAnagram, findAllUniqueAnagramsGivenWord, findAllUniqueAnagrams}
+module.exports = {removeNonAlphabeticCharsExceptSpace, isAnagram, findAllUniqueAnagramsGivenWord, findAllUniqueAnagrams}

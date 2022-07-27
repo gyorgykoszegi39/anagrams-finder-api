@@ -1,8 +1,11 @@
-const {isAnagram, findAllUniqueAnagrams, findAllUniqueAnagramsGivenWord} = require('../services/anagrams-finder.services');
+const {removeNonAlphabeticCharsExceptSpace, isAnagram, findAllUniqueAnagrams, findAllUniqueAnagramsGivenWord} = require('../services/anagrams-finder.services');
 
 twoWordsAnagram = function(request, response) {
     try {
-        response.status(200).send({"outcome" : isAnagram(request.body.word1, request.body.word2)});
+        word1 = removeNonAlphabeticCharsExceptSpace(request.body.word1);
+        word2 = removeNonAlphabeticCharsExceptSpace(request.body.word2);
+
+        response.status(200).send({"outcome" : isAnagram(word1, word2)});
     } catch(error) {
         response.status(400).send("Some error occurred. Please try again!")
     }
@@ -10,7 +13,10 @@ twoWordsAnagram = function(request, response) {
 
 wordSentenceUniqueAnagrams = function(request, response) {
     try {
-        response.status(200).send({"outcome" : findAllUniqueAnagramsGivenWord(request.body.word, request.body.sentence)});
+        word = removeNonAlphabeticCharsExceptSpace(request.body.word);
+        sentence = removeNonAlphabeticCharsExceptSpace(request.body.sentence);
+
+        response.status(200).send({"outcome" : findAllUniqueAnagramsGivenWord(word, sentence)});
     } catch(error) {
         response.status(400).send("Some error occurred. Please try again!")
     }
@@ -18,7 +24,9 @@ wordSentenceUniqueAnagrams = function(request, response) {
 
 uniqueAnagramsInSentence = function(request, response) {
     try {
-        response.status(200).send({"outcome" : findAllUniqueAnagrams(request.body.sentence)});
+        sentence = removeNonAlphabeticCharsExceptSpace(request.body.sentence);
+
+        response.status(200).send({"outcome" : findAllUniqueAnagrams(sentence)});
     } catch(error) {
         response.status(400).send("Some error occurred. Please try again!")
     }

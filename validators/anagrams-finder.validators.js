@@ -10,6 +10,10 @@ containsTwoWords = (request, response, next) =>{
         return response.status(400).send("Please fill in the first word.");
     }
 
+    if(!/[a-zA-Z]/.test(word1)) {
+        return response.status(400).send("The first word must contain at least a letter.");
+    }
+
     if(typeof word2 == "undefined") {
         return response.status(400).send("Please fill in the second word using key word2 in the body of the request. (For example: word2 : **yourWord**)");
     }
@@ -18,12 +22,15 @@ containsTwoWords = (request, response, next) =>{
         return response.status(400).send("Please fill in the second word.");
     }
 
+    if(!/[a-zA-Z]/.test(word2)) {
+        return response.status(400).send("The second word must contain at least a letter.");
+    }
+
     next();
 };
 
 containsWordSentence = (request, response, next) =>{
     var word = request.body.word;
-    var sentence = request.body.sentence;
 
     if(typeof word == "undefined") {
         return response.status(400).send("Please fill in the first word using key word in the body of the request. (For example: word : **yourWord**)");
@@ -33,15 +40,11 @@ containsWordSentence = (request, response, next) =>{
         return response.status(400).send("Please fill in the first word.");
     }
 
-    if(typeof sentence == "undefined") {
-        return response.status(400).send("Please enter a sentence using key sentence in the body of the request. (For example: sentence : **Your sentence.**)");
+    if(!/[a-zA-Z]/.test(word)) {
+        return response.status(400).send("The word must contain at least a letter.");
     }
 
-    if(sentence == null || sentence.length == 0) {
-        return response.status(400).send("Please enter a sentence.");
-    }
-
-    next();
+    containsSentence (request, response, next);
 };
 
 containsSentence = (request, response, next) =>{
@@ -53,6 +56,10 @@ containsSentence = (request, response, next) =>{
 
     if(sentence == null || sentence.length == 0) {
         return response.status(400).send("Please enter a sentence.");
+    }
+
+    if(!/[a-zA-Z]/.test(sentence)) {
+        return response.status(400).send("The sentence must contain at least a letter.");
     }
 
     next();
